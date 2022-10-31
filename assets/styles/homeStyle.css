@@ -1,0 +1,31 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+/* Globales */
+
+img {
+    max-width: 100%;
+}
+
+/* Header Styles */
+.menu {
+    background-color: #000000;
+}
+
+.banner {
+    background-image: url('../img/fotoBanner.jpg');
+    background-position: top center;
+    background-size: cover;
+    padding: 25%;
+    height: 100vh;
+    background-attachment: fixed;
+}
