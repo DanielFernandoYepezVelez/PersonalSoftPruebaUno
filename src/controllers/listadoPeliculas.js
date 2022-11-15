@@ -49,7 +49,7 @@ let peliculas = [
         duracion: 140,
         poster: "https://firebasestorage.googleapis.com/v0/b/cinemadaniel-5b659.appspot.com/o/onepiece.jpg?alt=media&token=2c47bd8d-70f5-44a6-bf25-2f87c61d4377",
     },
-    {
+    /* {
         nombre:"Tadeo 3",
         duracion: 120,
         poster: "https://firebasestorage.googleapis.com/v0/b/cinemadaniel-5b659.appspot.com/o/tadeo3nuevoposter.jpg?alt=media&token=468028cd-9712-4646-b2bb-82eec1764631",
@@ -58,60 +58,10 @@ let peliculas = [
         nombre: "Wakanda",
         duracion: 65,
         poster: "https://firebasestorage.googleapis.com/v0/b/cinemadaniel-5b659.appspot.com/o/wakanda.jpg?alt=media&token=729f1bcd-02f5-4389-a6a8-562ff0f1db34",
-    },
-    {
-        nombre: "Wakanda",
-        duracion: 65,
-        poster: "https://firebasestorage.googleapis.com/v0/b/cinemadaniel-5b659.appspot.com/o/wakanda.jpg?alt=media&token=729f1bcd-02f5-4389-a6a8-562ff0f1db34",
-    },
-    {
-        nombre: "Wakanda",
-        duracion: 65,
-        poster: "https://firebasestorage.googleapis.com/v0/b/cinemadaniel-5b659.appspot.com/o/wakanda.jpg?alt=media&token=729f1bcd-02f5-4389-a6a8-562ff0f1db34",
-    },
-    {
-        nombre: "Wakanda",
-        duracion: 65,
-        poster: "https://firebasestorage.googleapis.com/v0/b/cinemadaniel-5b659.appspot.com/o/wakanda.jpg?alt=media&token=729f1bcd-02f5-4389-a6a8-562ff0f1db34",
-    },
-    {
-        nombre: "Wakanda",
-        duracion: 65,
-        poster: "https://firebasestorage.googleapis.com/v0/b/cinemadaniel-5b659.appspot.com/o/wakanda.jpg?alt=media&token=729f1bcd-02f5-4389-a6a8-562ff0f1db34",
-    },
-    {
-        nombre: "Wakanda",
-        duracion: 65,
-        poster: "https://firebasestorage.googleapis.com/v0/b/cinemadaniel-5b659.appspot.com/o/wakanda.jpg?alt=media&token=729f1bcd-02f5-4389-a6a8-562ff0f1db34",
-    },
-    {
-        nombre: "Wakanda",
-        duracion: 65,
-        poster: "https://firebasestorage.googleapis.com/v0/b/cinemadaniel-5b659.appspot.com/o/wakanda.jpg?alt=media&token=729f1bcd-02f5-4389-a6a8-562ff0f1db34",
-    },
-    {
-        nombre: "Wakanda",
-        duracion: 65,
-        poster: "https://firebasestorage.googleapis.com/v0/b/cinemadaniel-5b659.appspot.com/o/wakanda.jpg?alt=media&token=729f1bcd-02f5-4389-a6a8-562ff0f1db34",
-    },
-    {
-        nombre: "Wakanda",
-        duracion: 65,
-        poster: "https://firebasestorage.googleapis.com/v0/b/cinemadaniel-5b659.appspot.com/o/wakanda.jpg?alt=media&token=729f1bcd-02f5-4389-a6a8-562ff0f1db34",
-    },
-    {
-        nombre: "Wakanda",
-        duracion: 65,
-        poster: "https://firebasestorage.googleapis.com/v0/b/cinemadaniel-5b659.appspot.com/o/wakanda.jpg?alt=media&token=729f1bcd-02f5-4389-a6a8-562ff0f1db34",
-    },
-    {
-        nombre: "Wakanda",
-        duracion: 65,
-        poster: "https://firebasestorage.googleapis.com/v0/b/cinemadaniel-5b659.appspot.com/o/wakanda.jpg?alt=media&token=729f1bcd-02f5-4389-a6a8-562ff0f1db34",
-    },
+    }, */
 ];
 
-let fila = document.getElementById('fila');
+/* let fila = document.getElementById('fila');
 
 peliculas.forEach(function(pelicula) {
     console.log(pelicula);
@@ -123,4 +73,37 @@ peliculas.forEach(function(pelicula) {
     foto.classList.add('img-fluid', "w-100");
 
     fila.appendChild(foto);
+}); */
+
+/* Interactuando Con El DOM Y Bootstrap */
+/* Etiqqueta De Referencia Donde Voy A Renderizar La Información */
+let etiquetaFila = document.getElementById('fila');
+
+/* Recorrer Mi Arreglo De Peliculas De Forma Imperativa */
+peliculas.forEach(function(pelicula) {
+    // TRAVERSING = Crear Etiquetas De HTML Desde JS
+    let nombre = document.createElement('h3');
+    let duracion = document.createElement('p');
+    let poster = document.createElement('img');
+    let columna = document.createElement('div');
+    let tarjeta = document.createElement('div');
+
+    // Agregando Contenido A La Etiquetas
+    poster.src = pelicula['poster'];
+    nombre.textContent = pelicula['nombre'];
+    duracion.textContent = 'Duración: ' + pelicula["duracion"] + ' Minutos';
+
+    // Agregando Estilos De Bootstrap A Las Etiquetas Anteriores
+    columna.classList.add("col");
+    tarjeta.classList.add('card', 'h-100', 'shadow');
+    poster.classList.add('img-fluid', 'w-100');
+    nombre.classList.add('text-center', 'fw-bold');
+    
+    // Jerarquía De Etiquetas (Mostrar La Etiquetas En El DOM)
+    etiquetaFila.appendChild(columna);
+    columna.appendChild(tarjeta);
+    
+    tarjeta.appendChild(poster);
+    tarjeta.appendChild(nombre);
+    tarjeta.appendChild(duracion);
 });
