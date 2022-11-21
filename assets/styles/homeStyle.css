@@ -29,3 +29,7 @@ img {
     height: 100vh;
     background-attachment: fixed;
 }
+
+.underline {
+    text-decoration: underline;
+}

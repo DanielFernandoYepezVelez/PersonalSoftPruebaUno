@@ -97,7 +97,7 @@ peliculas.forEach(function(pelicula) {
     columna.classList.add("col");
     tarjeta.classList.add('card', 'h-100', 'shadow');
     poster.classList.add('img-fluid', 'w-100');
-    nombre.classList.add('text-center', 'fw-bold');
+    nombre.classList.add('text-center', 'fw-bold', 'underline');
     
     // Jerarquía De Etiquetas (Mostrar La Etiquetas En El DOM)
     etiquetaFila.appendChild(columna);
@@ -106,4 +106,20 @@ peliculas.forEach(function(pelicula) {
     tarjeta.appendChild(poster);
     tarjeta.appendChild(nombre);
     tarjeta.appendChild(duracion);
+});
+
+let peliculaSeleccionada = {};
+
+// Escuchando el evento del clic en alguna pelicula de la cartelera1
+etiquetaFila.addEventListener("click", function(event) {
+    if (event.target.classList.contains('img-fluid')) {
+        // Obteniendo Los Datos De La Pelicula (Referencia Desde Padre Al Hijo)
+        peliculaSeleccionada['imagen'] = event.target.parentElement.querySelector('img').src;
+        peliculaSeleccionada['titulo'] = event.target.parentElement.querySelector('h3').textContent;
+        peliculaSeleccionada['duracion'] = event.target.parentElement.querySelector('p').textContent;
+
+        // Eviando Los Datos De La Pelicula Al Local Storage (Almacenamiento Local)
+        localStorage.setItem('pelicula', JSON.stringify(peliculaSeleccionada));
+        window.location.href = './src/views/verInfoPeliculas.html';
+    }
 });
